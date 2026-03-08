@@ -41,7 +41,7 @@ normal_pdf = stats.norm.pdf(x)
 for i, t_val in enumerate(test_times):
     data = results[t_val]
     plt.subplot(2, 2, i+1)
-    plt.hist(data['Z'], bins=200, density=True, alpha=0.6, color='seagreen', label='Empirical')
+    plt.hist(data['Z'], bins=200, density=True, alpha=0.6, color='blue', label='Empirical')
     plt.plot(x, normal_pdf, 'r--', linewidth=2, label='Normal PDF')
     plt.title(f"t = {t_val}\nSkew={data['skew']:.4f}, Kurt={data['kurt']:.4f}")
     plt.xlim(-5, 5)
