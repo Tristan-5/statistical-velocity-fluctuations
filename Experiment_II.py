@@ -62,6 +62,17 @@ bootstrap_res = stats.bootstrap((Z_final,),
 
 ci_low, ci_high = bootstrap_res.confidence_interval
 
+bootstrap_res = stats.bootstrap((Z_final,), 
+                                 lambda x: stats.kurtosis(x, fisher=False), 
+                                 n_resamples=B, 
+                                 confidence_level=0.95,
+                                 method='percentile')
+
+ci_low, ci_high = bootstrap_res.confidence_interval
+
+print(f"Empirical Skewness: {results[20.0]['skew']:.4f}")
+print(f"95% Bootstrap CI:  [{ci_skew_low:.4f}, {ci_skew_high:.4f}]")
+print(f"Target Skewness:    0.0000")
 print(f"Empirical Kurtosis: {results[20.0]['kurt']:.4f}")
 print(f"95% Bootstrap CI:  [{ci_low:.4f}, {ci_high:.4f}]")
 print(f"Target Kurtosis:    3.0000")
