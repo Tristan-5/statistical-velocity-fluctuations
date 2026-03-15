@@ -1,1 +1,1 @@
-This repository contains the full code used in the simulations in the paper "Statistical Consistency of a Discrete Collisional Model for Velocity Fluctuations and Stochastic Transport," under review at \emph{Transport Phenomena}.
+This repository contains the full code used in the simulations in the paper "Statistical Consistency of a Discrete Collisional Model for Velocity Fluctuations and Stochastic Transport," under review at Transport Phenomena.
