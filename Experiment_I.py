@@ -9,7 +9,7 @@ nu_c = 5.0          # Collision rate (s^-1)
 sigma_v = 1.0       # Target std dev of velocity increments (m/s)
 T = 10.0            # Total time (s)
 n_snapshots = 150   # Number of temporal snapshots
-M = 1000000         # Number of trajectories (10^6 as per Page 8)
+M = 1000000         # Number of trajectories (10^6)
 
 t = np.linspace(0.0, T, n_snapshots)
 a = np.sqrt(3) * sigma_v
@@ -48,4 +48,7 @@ plt.ylabel("Velocity Variance (m²/s²)")
 plt.title("Experiment I: Variance Growth Validation")
 plt.legend()
 plt.grid(True, alpha=0.3)
+
+plt.savefig("Experiment_I.png", dpi=600, bbox_inches="tight")
+
 plt.show()
