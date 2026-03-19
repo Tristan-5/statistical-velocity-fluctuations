@@ -54,4 +54,7 @@ plt.title(f"Validation of Discrete Collisional Model\nSlope = {slope:.4f} (Theor
 plt.legend()
 plt.grid(True, which="both", linestyle="--", alpha=0.5)
 plt.tight_layout()
+
+plt.savefig("Experiment_III.png", dpi=600, bbox_inches="tight")
+
 plt.show()
