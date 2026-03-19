@@ -50,6 +50,9 @@ for i, t_val in enumerate(test_times):
 
 plt.suptitle("Experiment II: Gaussian Convergence Validation", fontsize=16)
 plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+
+plt.savefig("Experiment_II.png", dpi=600, bbox_inches="tight")
+
 plt.show()
 
 Z_final = results[20.0]['Z']
