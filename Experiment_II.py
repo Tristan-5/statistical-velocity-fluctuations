@@ -57,21 +57,21 @@ plt.show()
 
 Z_final = results[20.0]['Z']
 
-bootstrap_res = stats.bootstrap((Z_final,), 
+bootstrap_skew = stats.bootstrap((Z_final,), 
+                                 lambda x: stats.skew(x), 
+                                 n_resamples=B, 
+                                 confidence_level=0.95,
+                                 method='percentile')
+
+ci_skew_low, ci_skew_high = bootstrap_skew.confidence_interval
+
+bootstrap_kurt = stats.bootstrap((Z_final,), 
                                  lambda x: stats.kurtosis(x, fisher=False), 
                                  n_resamples=B, 
                                  confidence_level=0.95,
                                  method='percentile')
 
-ci_low, ci_high = bootstrap_res.confidence_interval
-
-bootstrap_res = stats.bootstrap((Z_final,), 
-                                 lambda x: stats.kurtosis(x, fisher=False), 
-                                 n_resamples=B, 
-                                 confidence_level=0.95,
-                                 method='percentile')
-
-ci_low, ci_high = bootstrap_res.confidence_interval
+ci_kurt_low, ci_kurt_high = bootstrap_kurt.confidence_interval
 
 print(f"Empirical Skewness: {results[20.0]['skew']:.4f}")
 print(f"95% Bootstrap CI:  [{ci_skew_low:.4f}, {ci_skew_high:.4f}]")
